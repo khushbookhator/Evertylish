@@ -1,0 +1,38 @@
+.typ {
+    display: flex;
+    padding: 2% 8%;
+    gap:3%
+}
+.ones > img {
+    height:380px;
+    width:100%;
+    margin-bottom: -70px;
+}
+.btns {
+    background-color: white;
+    border: none;
+    outline: none;
+    width:50%;
+    padding:5%;
+}
+.btns:hover {
+    background-color: rgb(251,119,144);
+    cursor: pointer;
+}
+.heads {
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 500;
+    height:40px;
+    padding: 20px;
+    background-color: rgb(253,253,253);
+}
+.navlinks{
+    text-decoration: none;
+    color: black;
+    font-size: 11px;
+    margin-top: 5px;
+}
+.navlinks:hover{
+    color: rgb(251,119,144);
+}
