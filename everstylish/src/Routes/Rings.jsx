@@ -1,15 +1,11 @@
 import React from "react"
+import { RingsPage } from "../Components/Items/RingsPage"
 
 function Rings() {
 
     return (
         <>
-            <div>RINGS</div>
-            <div>{`HOME > JEWELLERY > RINGS`}</div>
-            <div>
-
-            </div>
-            
+            <RingsPage/>
         </>
     )
 }

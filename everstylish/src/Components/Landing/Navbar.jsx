@@ -28,7 +28,7 @@ function Navbar(){
                 <NavLink to={"/search"}><img alt="logo" style={{width:"26px", marginLeft:"30px", marginTop:"10px"}} src="https://img.icons8.com/ios/72/search--v1.png"/></NavLink>
                 <NavLink to={"/search"}><img alt="logo" style={{width:"30px", marginLeft:"30px", marginTop:"10px"}} src="https://img.icons8.com/ios-glyphs/2x/change-user-male.png"/></NavLink>
                 <NavLink to={"/search"}><img alt="logo" style={{width:"30px", marginLeft:"30px", marginTop:"10px"}} src="https://img.icons8.com/material-outlined/2x/filled-like.png"/></NavLink>
-                <NavLink to={"/search"}><img alt="logo" style={{width:"30px", marginLeft:"30px", marginTop:"10px"}} src="https://img.icons8.com/pastel-glyph/2x/shopping-bag--v3.png"/></NavLink>
+                <NavLink to={"/cart"}><img alt="logo" style={{width:"30px", marginLeft:"30px", marginTop:"10px"}} src="https://img.icons8.com/pastel-glyph/2x/shopping-bag--v3.png"/></NavLink>
             </div>
         </div>
         //https://everstylish.com/pub/media/wysiwyg/slider/2.jpg

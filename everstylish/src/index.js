@@ -4,13 +4,20 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router} from "react-router-dom"
+import { Provider } from 'react-redux';
+import { store } from './Redux/Store';
+import { CartContextProvider } from './CartContext/CartContextProvider';
 
 
 ReactDOM.render(
   <React.StrictMode>
+    <CartContextProvider>
     <Router>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </Router>
+    </CartContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

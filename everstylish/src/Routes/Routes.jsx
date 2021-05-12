@@ -5,6 +5,11 @@ import {All} from "./All"
 import {Type} from "./Type"
 import {Collection} from "./Collection"
 import {Rings} from "./Rings"
+import { Individual } from "../Components/Items/Individual"
+import { Cart } from "../Components/Tabs/Cart"
+import { Earrings } from "./Earrings"
+import { Bracelet } from "./Bracelet"
+import { Neckpiece } from "./Neckpiece"
 
 const Routes = () => {
     return(
@@ -13,24 +18,39 @@ const Routes = () => {
                 <Route exact path="/" >
                     <Home/>
                 </Route>
-                <Route path="/all" >
+                <Route exact path="/all" >
                     <All/>
                 </Route>
-                <Route path="/type">
+                <Route exact path="/type">
                     <Type/>
                 </Route>
-                <Route path="/collection">
+                <Route exact path="/collection">
                     <Collection/>
                 </Route>
-                <Route path="/rings">
+                <Route exact path="/rings">
                     <Rings/>
+                </Route>
+                <Route exact path="/earrings">
+                    <Earrings/>
+                </Route>
+                <Route exact path="/bracelet">
+                    <Bracelet/>
+                </Route>
+                <Route exact path="/neckpiece">
+                    <Neckpiece/>
+                </Route>
+                <Route exact path="/cart">
+                    <Cart/>
+                </Route>
+                <Route exact path="/rings/:id">
+                    <Individual/>
                 </Route>
                 <Route>
                     <h3>Error: 404 Page Not Found</h3>
                 </Route>
             </Switch>
         </>
-    );
+    )
 }
 
 export {Routes}

@@ -11,15 +11,16 @@ function Types() {
             </div>
             <div className={styles.ones}>
                 <img alt="pics" src="https://everstylish.com/pub/media/promobanners//a/d/adl11357_4_2_2.jpg"/>
-                <button className={styles.btns}>Bracelet</button>
+                <Link to={"/bracelet"}>
+                <button className={styles.btns}>Bracelet</button></Link>
             </div>
             <div className={styles.ones}>
                 <img alt="pics" src="https://everstylish.com/pub/media/promobanners//a/d/adl11270-2_1.jpg"/>
-                <button className={styles.btns}>Neckpieces</button>
+                <Link to={"/neckpiece"}><button className={styles.btns}>Neckpieces</button></Link>
             </div>
             <div className={styles.ones}>
                 <img alt="pics" src="https://everstylish.com/pub/media/promobanners//a/d/adl11332_2.jpg"/>
-                <button className={styles.btns}>Earrings</button>
+                <Link to={"/earrings"}><button className={styles.btns}>Earrings</button></Link>
             </div>
         </div>
     )
