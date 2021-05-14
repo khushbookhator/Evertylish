@@ -36,3 +36,22 @@
 .navlinks:hover{
     color: rgb(251,119,144);
 }
+.outmost {
+    display:flex;
+    padding: 1% 0.5%;
+    gap:6%;
+    justify-Content:center
+}
+.outmost> div {
+    align-items: center;
+    text-align: left;
+}
+.flex {
+    display: flex;
+    gap: 15px;
+}
+.flex > div > h4 {
+    font-size: 12px;
+    font-weight:900;
+    color: black;
+}
