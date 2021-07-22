@@ -31,9 +31,20 @@ const postProduct = async (req, res) => {
 const getIndividualProduct = async (req, res) => {
     try {
         const product = await Product.findById(req.params.id)
-        res.json(product)
+        res.status(201).json(product)
     }
     catch (error) {
+        console.error(error);
+        res.status(500).json({message: "Server Error"})
+    }
+}
+const getItems = async(req, res) => {
+    try{
+        const type = req.params.type
+        const data = await Product.find({type: {$eq: type}})
+        res.status(201).json({data: data})
+    }
+    catch{
         console.error(error);
         res.status(500).json({message: "Server Error"})
     }
@@ -42,5 +53,6 @@ const getIndividualProduct = async (req, res) => {
 module.exports = {
     getAllProducts,
     postProduct,
-    getIndividualProduct
+    getIndividualProduct,
+    getItems
 }
