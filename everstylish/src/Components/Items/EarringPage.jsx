@@ -1,23 +1,23 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { productDetails } from '../../Redux/Action'
 import { Header } from './header'
 import { Item } from './Item'
 import { Path } from './Path'
 import styles from "./Item.module.css"
+import { earringsDeatils } from '../../Redux/Products/Action'
 
 export const EarringPage = () => {
 
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(productDetails())
+        dispatch(earringsDeatils())
     },[dispatch])
-    const items = useSelector(state => state.data.items)
-
+    const items = useSelector(state => state.data.earrings)
+    console.log(items)
     return (
         <div>
             <div>
-                <Header head="EARRINGS  "/>
+                <Header head="EARRINGS"/>
             </div>
             <Path paths="Home > Jewellery > Earrings"/>
             <div className={styles.settings}>
@@ -26,10 +26,10 @@ export const EarringPage = () => {
             <div className={styles.wrap1}>
                 {items?.filter((item) => item.type === "earrings").map((it) => 
                     <Item
-                    id={it.id}
-                    im={it.img}
-                    des={it.desctoption}
-                    price={it.price}
+                    id={it._id}
+                    im={it.imageUrl}
+                    des={it.description}
+                    price={it.new_price}
                     />
                 )}
             </div>

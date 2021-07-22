@@ -1,10 +1,10 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { cartReducer } from './Cart/Reducer';
-import { dataReducer } from './Reducer';
+import { productReducer } from './Products/Reducer';
 
 const rootReducer = combineReducers({
-    data:dataReducer,
+    data:productReducer,
     cart: cartReducer
 })
 export const store = createStore(
