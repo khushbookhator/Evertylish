@@ -50,15 +50,19 @@ const Cart = () => {
                             <p>Subtotal</p>
                             <p>Rs.{total}</p>
                         </div>
-                        <div className={styles.flex}>
-                            <div style={{
-                                textAlign:"left"
-                            }}>
-                                <p>Shipping</p>
-                                <p>(free for orders<br/>above Rs. 600)</p>
-                            </div>
-                            <p>Rs.60</p>
-                        </div>
+                        {total < 600 ?
+                            (<div className={styles.flex}>
+                                <div style={{
+                                    textAlign:"left"
+                                }}>
+                                    <p>Shipping</p>
+                                    <p>(free for orders<br/>above Rs. 600)</p>
+                                </div>
+                                <p>Rs.60</p>
+                            </div>):(
+                                null
+                            )
+                        }
                     </div>
                     <div className={styles.orderss}>
                         <div className={styles.flex}>
