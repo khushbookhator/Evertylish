@@ -1,35 +1,29 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
 import { productDetails } from '../../Redux/Action'
 import { Header } from './header'
 import { Path } from './Path'
 import styles from "./Item.module.css"
-import { CartContext } from '../../CartContext/CartContextProvider'
+import { addToCart } from '../../Redux/Cart/Action'
 
 const Individual = () => {
     const [qty, setQty] = useState(1)
     const dispatch =  useDispatch()
     const data = useSelector(state => state.data.items)
     const {id} = useParams()
-    const {goToCart} = useContext(CartContext)
     useEffect(() => {
         dispatch(productDetails())
     },[dispatch])
     const individualData = data?.filter(item=>item.id === Number(id))[0]
 
     const addToBag = () => {
-        const payload = {
-            ...individualData,
-            qty: qty
-        }
-        console.log(payload)
         document.getElementById("addbtn").textContent = "ADDING..."
         setTimeout(() => {
             document.getElementById("addbtn").textContent = "ADD TO BAG"
         },1500)
-        
-        goToCart(payload)
+        dispatch(addToCart(+id, qty))
+        // history.push("/cart")
     }
 
     return (
