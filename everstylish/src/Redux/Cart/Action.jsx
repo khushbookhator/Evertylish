@@ -1,22 +1,23 @@
 import { ADD_TO_CART, REMOVE_FROM_CART } from "./ActionType"
 import axios from "axios"
+import { saveData } from "../../Utils/LocalStorage"
 
 
 
 export const addToCart =(id, qty)=> async(dispatch, getState) => {
-    const {data} = await axios.get(`/api/products/${id}`)
+    const {data} = await axios.get(`http://localhost:1107/api/products/${id}`)
 
     dispatch({
         type: ADD_TO_CART,
         payload: {
-            product: data._id,
+            id: data._id,
             name: data.description,
             imageUrl: data.imageUrl,
             price: data.new_price,
-            qty
+            qty: qty
         }
     })
-    localStorage.setItem('cart', JSON.stringify(getState().cart.cartItems))
+    saveData('cart', getState().cart.cartItems)
 } 
 
 export const removeFromCart = (id) =>(dispatch, getState) => {
@@ -24,7 +25,7 @@ export const removeFromCart = (id) =>(dispatch, getState) => {
         type: REMOVE_FROM_CART,
         payload: id
     })
-    localStorage.setItem('cart', JSON.stringify(getState().cart.cartItems))
+    saveData('cart', getState().cart.cartItems)
 }
 
 // const addToCart =(id, qty)=>{

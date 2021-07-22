@@ -4,6 +4,9 @@ import { Header } from '../Items/header'
 import { Path } from '../Items/Path'
 import { CartItem } from './CartItem'
 import styles from "./tabs.module.css"
+import { removeFromCart } from '../../Redux/Cart/Action'
+import { useDispatch } from 'react-redux'
+
 
 const Cart = () => {
     const cart = getData("cart")
@@ -15,6 +18,12 @@ const Cart = () => {
             setTotal(cart.reduce((a,b)=>a+b.price*b.qty,0))
         }
     },[cart])
+
+    const dispatch = useDispatch()
+    const removeCartData = (id) => {
+        dispatch(removeFromCart(id))
+    }
+
     return (
         <div>
             <Header head="SHOPPING BAG"/>
@@ -24,11 +33,12 @@ const Cart = () => {
                     {
                         cart?.map((el) => (
                             <CartItem
-                            urls={el.img}
-                            des={el.desctoption}
+                            urls={el.imageUrl}
+                            des={el.description}
                             price={el.price}
-                            qty={el.qty }
+                            qty={el.qty}
                             id={el.id}
+                            removeCartData={removeCartData}
                             />
                         ))
                     }

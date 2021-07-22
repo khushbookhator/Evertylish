@@ -1,10 +1,7 @@
-import React, { useContext } from 'react'
-import { CartContext } from '../../CartContext/CartContextProvider'
+import React from 'react'
 import styles from "./tabs.module.css"
 
-const CartItem = ({urls, des, price, qty, id}) => {
-
-    const {removeFromCart} = useContext(CartContext)
+const CartItem = ({urls, des, price, qty, id, removeCartData}) => {
 
     return (
         <div className={styles.cartitemlayout} key={id}>
@@ -12,10 +9,11 @@ const CartItem = ({urls, des, price, qty, id}) => {
             <div className={styles.dets}>
                 <h3>{des}</h3>
                 <p>Min Dispatch Time: 15-20 days</p>
-                <p>Price: Rs{price}.00</p>
+                <p>Price: Rs. {price}.00</p>
                 <p>{qty}</p>
-                <p>Rs{price*qty}</p>
-                <button onClick={() =>removeFromCart(id)}>REMOVE</button>
+                <p>Rs. {price*qty}</p>
+                <p>{id}</p>
+                <button onClick={() => removeCartData(id)}>REMOVE</button>
             </div>
         </div>
     )

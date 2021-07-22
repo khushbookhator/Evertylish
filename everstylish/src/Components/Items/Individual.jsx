@@ -1,45 +1,43 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
-import { productDetails } from '../../Redux/Action'
 import { Header } from './header'
 import { Path } from './Path'
 import styles from "./Item.module.css"
 import { addToCart } from '../../Redux/Cart/Action'
+import { individualDetails } from '../../Redux/Products/Action'
 
 const Individual = () => {
     const [qty, setQty] = useState(1)
     const dispatch =  useDispatch()
-    const data = useSelector(state => state.data.items)
     const {id} = useParams()
     useEffect(() => {
-        dispatch(productDetails())
-    },[dispatch])
-    const individualData = data?.filter(item=>item.id === Number(id))[0]
+        dispatch(individualDetails(id))
+    },[dispatch, id])
+    console.log(id)
+    const individualData = useSelector(state => state.data.individual)
 
     const addToBag = () => {
         document.getElementById("addbtn").textContent = "ADDING..."
         setTimeout(() => {
             document.getElementById("addbtn").textContent = "ADD TO BAG"
         },1500)
-        dispatch(addToCart(+id, qty))
-        // history.push("/cart")
+        dispatch(addToCart(id, qty))
     }
 
     return (
         <>
-          <Header head={individualData.desctoption}/>
-          <Path paths={`Home > Jewellery > ${individualData.type}`}/>  
+          <Header head={individualData?.description}/>
+          <Path paths={`Home > Jewellery > ${individualData?.type}`}/>  
           <div className={styles.cont1}>
               <div className={styles.outerimg}>
-                    <img width="80%" height="90%" src={individualData.img} alt="item"/>
+                    <img width="80%" height="90%" src={individualData?.imageUrl} alt="item"/>
               </div>
               <div className={styles.outerdivs}>
                   <div>
                     <div className={styles.flex}>
-                        <h3 className={styles.cross}>{`₹${
-                        Math.round(((individualData.price/25)*100)/10)*10-1}`}</h3>
-                        <h3 className={styles.price}>{`₹${individualData.price}`}</h3>
+                        <h3 className={styles.cross}>{`₹${individualData?.old_price}`}</h3>
+                        <h3 className={styles.price}>{`₹${individualData?.new_price}`}</h3>
                     </div>
                     <p className={styles.left}>COLOR NAME</p>
                     <p className={styles.left}>Material details</p>
@@ -65,8 +63,12 @@ const Individual = () => {
               </div>
           </div>
           <div>
-            <button styles={styles.cares}>CARE & HANDLING</button>
+            {/* <button styles={styles.cares}>CARE & HANDLING</button> */}
           </div>
+
+
+
+
           {/* <div className={styles.cont2}>
                 <p>We know how much you love our jewellery so we have created a small guide as to how you can make your jewellery last a long time.</p>
                 <p>Fashion jewelry tarnishes when exposed to moisture, oils, salts and acids. Keep your jewellery tarnish free by keeping it dry. </p>

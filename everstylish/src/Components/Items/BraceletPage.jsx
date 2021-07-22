@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { productDetails } from '../../Redux/Action'
 import { Header } from './header'
 import { Item } from './Item'
 import { Path } from './Path'
 import styles from "./Item.module.css"
+import { braceletsDetails } from '../../Redux/Products/Action'
 
 export const BraceletPage = () => {
 
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(productDetails())
+        dispatch(braceletsDetails())
     },[dispatch])
-    const items = useSelector(state => state.data.items)
+    const items = useSelector(state => state.data.bracelet)
 
     return (
         <div>
@@ -24,12 +24,12 @@ export const BraceletPage = () => {
 
             </div>
             <div className={styles.wrap1}>
-                {items?.filter((item) => item.type === "bracelet").map((it) => 
+            {items?.map((it) => 
                     <Item
-                    id={it.id}
-                    im={it.img}
-                    des={it.desctoption}
-                    price={it.price}
+                    id={it._id}
+                    im={it.imageUrl}
+                    des={it.description}
+                    price={it.new_price}
                     />
                 )}
             </div>

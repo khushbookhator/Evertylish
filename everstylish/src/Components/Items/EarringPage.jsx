@@ -13,7 +13,6 @@ export const EarringPage = () => {
         dispatch(earringsDeatils())
     },[dispatch])
     const items = useSelector(state => state.data.earrings)
-    console.log(items)
     return (
         <div>
             <div>
@@ -24,7 +23,7 @@ export const EarringPage = () => {
 
             </div>
             <div className={styles.wrap1}>
-                {items?.filter((item) => item.type === "earrings").map((it) => 
+                {items?.map((it) => 
                     <Item
                     id={it._id}
                     im={it.imageUrl}
