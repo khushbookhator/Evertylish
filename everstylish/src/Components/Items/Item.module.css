@@ -45,6 +45,11 @@
  .paddings{
     padding:0px 25px 0px 10px
  }
+ .croos {
+   text-decoration:line-through;
+   padding:0px 25px 0px 10px
+
+ }
  .paths {
     height:20px;
     margin-top:-20px;

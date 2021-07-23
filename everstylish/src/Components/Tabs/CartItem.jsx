@@ -8,12 +8,15 @@ const CartItem = ({urls, des, price, qty, id, removeCartData}) => {
             <img className={styles.imgur} src={urls} alt="itemincart"/>
             <div className={styles.dets}>
                 <h3>{des}</h3>
-                <p>Min Dispatch Time: 15-20 days</p>
+                <p style={{
+                    fontSize: "15px",
+                    fontWeight: "600",
+                    color:'black'
+                }}>Min Dispatch Time: 15-20 days</p>
                 <p>Price: Rs. {price}.00</p>
-                <p>{qty}</p>
+                <p>Qty: {qty}</p>
                 <p>Rs. {price*qty}</p>
-                <p>{id}</p>
-                <button onClick={() => removeCartData(id)}>REMOVE</button>
+                <button className={styles.remove} onClick={() => removeCartData(id)}>REMOVE</button>
             </div>
         </div>
     )

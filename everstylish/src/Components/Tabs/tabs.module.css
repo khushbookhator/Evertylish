@@ -60,3 +60,15 @@
     background: black;
     color: white;
 }
+.remove {
+    background: transparent;
+    padding: 2%;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    color: gray;
+    cursor: pointer;
+}
+.dark {
+    font-size: 15px;
+    font-weight: 500;
+}

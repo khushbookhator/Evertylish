@@ -1,4 +1,3 @@
-import React from "react"
 import { Details } from "../Components/Landing/Details"
 import { Slide } from "../Components/Landing/Slide"
 import { Types } from "../Components/Landing/Variety"

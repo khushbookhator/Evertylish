@@ -30,6 +30,7 @@ export const RingsPage = () => {
                     im={it.imageUrl}
                     des={it.description}
                     price={it.new_price}
+                    oldPrice={it.old_price}
                     />
                 )}
             </div>
