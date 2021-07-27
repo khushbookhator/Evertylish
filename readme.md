@@ -36,6 +36,18 @@ In the project directory, I've tried to clone this e-commerce website. User can 
 <hr/>
 
 ## Installation and Setup Instructions
-Clone down this repository. You will need node and npm installed globally on your machine. 
-Installation: npm install To Run Test Suite: npm test To Start Server: npm start To Visit App: localhost:3000/
+Clone down this repository using this <a href="https://github.com/khushbookhator/Evertylish">link</a>
+
+You will need node and npm installed globally on your machine. 
+
+Inside Client & Server install with npm
+
+
+```bash
+  npm install
+```
+
+To Run Test Suite: npm test To Start Server: npm start
+
+To Visit App: localhost:3000/
 
